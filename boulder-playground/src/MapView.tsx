@@ -1,5 +1,12 @@
 ﻿import type { LatLngExpression } from "leaflet";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import {
+  LayersControl,
+  MapContainer,
+  Marker,
+  Popup,
+  ScaleControl,
+  TileLayer,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 type MapViewProps = {
@@ -31,6 +38,7 @@ export function MapView({
       <MapContainer
         center={center}
         zoom={zoom}
+        zoomControl={false}
         style={{
           width: "100%",
           height: "100%",
@@ -38,7 +46,21 @@ export function MapView({
           overflow: "hidden",
         }}
       >
-        <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png" />
+        <LayersControl position="topright">
+          <LayersControl.BaseLayer checked name="OpenStreetMap">
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="OpenStreetMap Humanitarian">
+            <TileLayer
+              attribution='Tiles courtesy of <a href="https://www.hotosm.org/" target="_blank" rel="noreferrer">Humanitarian OpenStreetMap Team</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
+        </LayersControl>
+        <ScaleControl imperial={false} position="bottomleft" />
 
         {showMarker && (
           <Marker position={center}>
