@@ -1,0 +1,227 @@
+:root {
+  background-color: white;
+  --boulder-font-family: \"JetBrains Mono\", \"Inter\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family:
+    "JetBrains Mono",
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: var(--boulder-color-text);
+  min-height: 100vh;
+  background: white;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  background: white;
+}
+
+.app-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.page-body {
+  display: grid;
+  grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding-left: clamp(1.5rem, 4vw, 4rem);
+  padding-right: clamp(1.5rem, 4vw, 4rem);
+}
+
+.sidebar-panel {
+  position: sticky;
+  align-self: start;
+  height: fit-content;
+  border-radius: var(--boulder-radius-lg);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+.sidebar-section-title {
+  font-size: var(--boulder-font-size-sm);
+  font-weight: var(--boulder-font-weight-semibold);
+  color: var(--boulder-color-text-secondary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: var(--boulder-spacing-sm);
+}
+
+.layer-list,
+.hotspot-list,
+.mission-list,
+.team-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--boulder-spacing-md);
+}
+
+.layer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--boulder-spacing-md);
+}
+
+.layer-item__details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.layer-item__details span {
+  font-size: var(--boulder-font-size-xs, 0.75rem);
+  color: var(--boulder-color-text-muted, #7f8ea3);
+}
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+  padding: 15px;
+}
+
+.content-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(1rem, 2vw, 2.5rem);
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: var(--boulder-spacing-lg);
+  border-radius: var(--boulder-radius-lg);
+  background: white;
+}
+
+.eyebrow {
+  font-size: var(--boulder-font-size-sm);
+  color: var(--boulder-color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--boulder-spacing-xs);
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--boulder-spacing-sm);
+  padding: var(--boulder-spacing-md);
+  background: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.stat-card__value {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: var(--boulder-font-weight-bold);
+}
+
+.map-card {
+  border-radius: var(--boulder-radius-xl, 1.25rem);
+  overflow: hidden;
+}
+
+.map-card__actions {
+  display: flex;
+  gap: var(--boulder-spacing-sm);
+  flex-wrap: wrap;
+}
+
+.map-wrapper {
+  border-radius: var(--boulder-radius-lg);
+  overflow: hidden;
+}
+
+.tabs-list,
+.sidebar-tabs-list {
+  display: flex;
+  gap: var(--boulder-spacing-xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--boulder-spacing-md);
+  padding: 0;
+  border-radius: 0;
+}
+
+.hotspot-card {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--boulder-spacing-md);
+  align-items: center;
+  padding: var(--boulder-spacing-sm) var(--boulder-spacing-md);
+  border-radius: var(--boulder-radius-md);
+  background: var(--boulder-color-surface-raised, rgba(255, 255, 255, 0.04));
+}
+
+.mission-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--boulder-spacing-sm);
+}
+
+.mission-item__header,
+.team-member {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--boulder-spacing-sm);
+}
+
+.team-member {
+  padding: var(--boulder-spacing-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.team-member:last-child {
+  border-bottom: none;
+}
+
+.secondary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+@media (max-width: 1024px) {
+  .page-body {
+    grid-template-columns: 1fr;
+    padding: var(--boulder-spacing-xl);
+  }
+
+  .sidebar-panel {
+    position: static;
+    order: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .content-heading {
+    flex-direction: column;
+    padding: var(--boulder-spacing-md);
+  }
+
+  .map-card__actions {
+    width: 100%;
+  }
+
+  .page-body {
+    padding: var(--boulder-spacing-lg);
+  }
+}
