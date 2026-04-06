@@ -10,7 +10,7 @@ export function StatsSummary() {
   return (
     <div className="stats-grid">
       {statsCards.map((card) => (
-        <Card key={card.title} variant="elevated">
+        <Card key={card.title} className="overlay-card" variant="elevated">
           <CardHeader>
             <CardDescription>{card.title}</CardDescription>
             <CardTitle className="stat-card__value" as="h2">

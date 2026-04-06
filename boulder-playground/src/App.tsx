@@ -5,22 +5,35 @@ import { MissionSummaryCard } from "./components/MissionSummaryCard";
 import { OperationsSidebar } from "./components/OperationsSidebar";
 import { StatsSummary } from "./components/StatsSummary";
 import { TeamRosterCard } from "./components/TeamRosterCard";
+import { MapView } from "./MapView";
 
 function App() {
   return (
     <div className="app-shell">
-      <CustomHeader />
-      <main className="page-body">
-        <OperationsSidebar />
-        <section className="content-area">
-          <StatsSummary />
-          <MapShowcase />
-          <div className="secondary-grid">
-            <MissionSummaryCard />
-            <TeamRosterCard />
-          </div>
-        </section>
-      </main>
+      <div className="map-stage">
+        <MapView className="map-stage__view" />
+      </div>
+
+      <div className="ui-overlay">
+        <div className="ui-overlay__header">
+          <CustomHeader />
+        </div>
+
+        <main className="overlay-layout">
+          <aside className="overlay-layout__sidebar">
+            <OperationsSidebar />
+          </aside>
+
+          <section className="overlay-layout__content">
+            <StatsSummary />
+            <MapShowcase />
+            <div className="secondary-grid">
+              <MissionSummaryCard />
+              <TeamRosterCard />
+            </div>
+          </section>
+        </main>
+      </div>
     </div>
   );
 }

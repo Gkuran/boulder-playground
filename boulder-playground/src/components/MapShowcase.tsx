@@ -6,9 +6,9 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
+  Divider,
   Tabs,
 } from "boulder-ui";
-import { MapView } from "../MapView";
 
 const TabsRoot = Tabs.Root;
 const TabsList = Tabs.List;
@@ -38,7 +38,7 @@ const hotspotList = [
 
 export function MapShowcase() {
   return (
-    <Card className="map-card" variant="elevated">
+    <Card className="map-card overlay-card" variant="elevated">
       <CardHeader
         style={{
           display: "flex",
@@ -48,9 +48,10 @@ export function MapShowcase() {
         }}
       >
         <div>
-          <CardTitle as="h2">Mapa em tempo real</CardTitle>
+          <CardTitle as="h2">Comandos do mapa</CardTitle>
           <CardDescription>
-            Combine camadas, acione alertas e teste a responsividade.
+            Ajuste camadas, exporte dados e acompanhe eventos sem sair da
+            visualização principal.
           </CardDescription>
         </div>
         <div className="map-card__actions">
@@ -63,12 +64,33 @@ export function MapShowcase() {
       <CardContent>
         <TabsRoot defaultValue="mapa">
           <TabsList className="tabs-list">
-            <TabsTrigger value="mapa">Mapa</TabsTrigger>
+            <TabsTrigger value="mapa">Visão geral</TabsTrigger>
             <TabsTrigger value="hotspots">Hotspots</TabsTrigger>
           </TabsList>
           <TabsContent value="mapa">
-            <div className="map-wrapper">
-              <MapView height="420px" />
+            <div className="map-panel">
+              <div className="map-panel__summary">
+                <strong>Cobertura operacional</strong>
+                <CardDescription>
+                  O mapa está em tela cheia. Use este painel para controlar a
+                  operação sem perder contexto espacial.
+                </CardDescription>
+              </div>
+              <Divider />
+              <ul className="map-kpi-list">
+                <li className="map-kpi">
+                  <span>Camadas ativas</span>
+                  <strong>08</strong>
+                </li>
+                <li className="map-kpi">
+                  <span>Última atualização</span>
+                  <strong>2 min</strong>
+                </li>
+                <li className="map-kpi">
+                  <span>Área coberta</span>
+                  <strong>42 km²</strong>
+                </li>
+              </ul>
             </div>
           </TabsContent>
           <TabsContent value="hotspots">

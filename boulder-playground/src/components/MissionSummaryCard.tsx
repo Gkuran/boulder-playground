@@ -8,7 +8,7 @@ const missionTimeline = [
 
 export function MissionSummaryCard() {
   return (
-    <Card>
+    <Card className="overlay-card">
       <CardHeader>
         <CardTitle as="h3">Missões da semana</CardTitle>
         <CardDescription>Sincronize telemetria e checklists.</CardDescription>

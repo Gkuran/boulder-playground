@@ -8,7 +8,7 @@ const teamRoster = [
 
 export function TeamRosterCard() {
   return (
-    <Card>
+    <Card className="overlay-card">
       <CardHeader>
         <CardTitle as="h3">Equipe no turno</CardTitle>
         <CardDescription>Integrantes que podem testar convites e permissões.</CardDescription>
