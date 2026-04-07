@@ -1,4 +1,4 @@
-import {
+﻿import {
   Badge,
   Button,
   Card,
@@ -18,21 +18,21 @@ const TabsContent = Tabs.Content;
 const hotspotList = [
   {
     id: "fortaleza",
-    title: "Cânion Fortaleza",
-    detail: "Umidade relativa 21%",
-    badge: "Atenção",
+    title: "Fortaleza Canyon",
+    detail: "Relative humidity 21%",
+    badge: "Attention",
   },
   {
     id: "tucanos",
-    title: "Vale dos Tucanos",
-    detail: "Monitoramento estabilizado",
-    badge: "Estável",
+    title: "Toucan Valley",
+    detail: "Monitoring stabilized",
+    badge: "Stable",
   },
   {
     id: "cristal",
-    title: "Cristal d'Água",
-    detail: "Trânsito bloqueado · rota alternativa",
-    badge: "Aviso",
+    title: "Crystal Waters",
+    detail: "Traffic blocked · alternate route",
+    badge: "Notice",
   },
 ] as const;
 
@@ -48,46 +48,46 @@ export function MapShowcase() {
         }}
       >
         <div>
-          <CardTitle as="h2">Comandos do mapa</CardTitle>
+          <CardTitle as="h2">Map commands</CardTitle>
           <CardDescription>
-            Ajuste camadas, exporte dados e acompanhe eventos sem sair da
-            visualização principal.
+            Adjust layers, export data, and track events without leaving the
+            main view.
           </CardDescription>
         </div>
         <div className="map-card__actions">
           <Button size="sm" variant="secondary">
-            Exportar KML
+            Export KML
           </Button>
-          <Button size="sm">Atualizar</Button>
+          <Button size="sm">Refresh</Button>
         </div>
       </CardHeader>
       <CardContent>
-        <TabsRoot defaultValue="mapa">
+        <TabsRoot defaultValue="map">
           <TabsList className="tabs-list">
-            <TabsTrigger value="mapa">Visão geral</TabsTrigger>
+            <TabsTrigger value="map">Overview</TabsTrigger>
             <TabsTrigger value="hotspots">Hotspots</TabsTrigger>
           </TabsList>
-          <TabsContent value="mapa">
+          <TabsContent value="map">
             <div className="map-panel">
               <div className="map-panel__summary">
-                <strong>Cobertura operacional</strong>
+                <strong>Operational coverage</strong>
                 <CardDescription>
-                  O mapa está em tela cheia. Use este painel para controlar a
-                  operação sem perder contexto espacial.
+                  The map is full screen. Use this panel to control operations
+                  without losing spatial context.
                 </CardDescription>
               </div>
               <Divider />
               <ul className="map-kpi-list">
                 <li className="map-kpi">
-                  <span>Camadas ativas</span>
+                  <span>Active layers</span>
                   <strong>08</strong>
                 </li>
                 <li className="map-kpi">
-                  <span>Última atualização</span>
+                  <span>Last update</span>
                   <strong>2 min</strong>
                 </li>
                 <li className="map-kpi">
-                  <span>Área coberta</span>
+                  <span>Covered area</span>
                   <strong>42 km²</strong>
                 </li>
               </ul>
@@ -103,9 +103,9 @@ export function MapShowcase() {
                   </div>
                   <Badge
                     variant={
-                      spot.badge === "Atenção"
+                      spot.badge === "Attention"
                         ? "warning"
-                        : spot.badge === "Aviso"
+                        : spot.badge === "Notice"
                           ? "danger"
                           : "success"
                     }
@@ -121,3 +121,4 @@ export function MapShowcase() {
     </Card>
   );
 }
+

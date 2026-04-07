@@ -1,9 +1,9 @@
-import { Card, CardDescription, CardHeader, CardTitle } from "boulder-ui";
+﻿import { Card, CardDescription, CardHeader, CardTitle } from "boulder-ui";
 
 const statsCards = [
-  { title: "Áreas monitoradas", value: "128", detail: "+12% vs ontem" },
-  { title: "Sensores online", value: "312", detail: "98% ativos" },
-  { title: "Alertas críticos", value: "3", detail: "2 novos hoje" },
+  { title: "Monitored areas", value: "128", detail: "+12% vs yesterday" },
+  { title: "Sensors online", value: "312", detail: "98% active" },
+  { title: "Critical alerts", value: "3", detail: "2 new today" },
 ];
 
 export function StatsSummary() {
@@ -23,3 +23,4 @@ export function StatsSummary() {
     </div>
   );
 }
+

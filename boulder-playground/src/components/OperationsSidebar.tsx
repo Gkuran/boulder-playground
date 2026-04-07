@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import {
   Badge,
   Button,
@@ -23,21 +23,21 @@ const TabsContent = Tabs.Content;
 const defaultLayerOptions = [
   {
     id: "trails",
-    label: "Trilhas homologadas",
-    helper: "Base ICMBio",
+    label: "Approved trails",
+    helper: "ICMBio base",
     active: true,
   },
-  { id: "hydrology", label: "Hidrografia", helper: "ANA · 2026", active: true },
+  { id: "hydrology", label: "Hydrology", helper: "ANA · 2026", active: true },
   {
     id: "wildfire",
-    label: "Queimadas (INPE)",
-    helper: "Atualiza a cada 15 min",
+    label: "Wildfires (INPE)",
+    helper: "Updates every 15 min",
     active: false,
   },
   {
     id: "fauna",
-    label: "Ocorrências de fauna",
-    helper: "Rede BioSul",
+    label: "Fauna occurrences",
+    helper: "BioSul network",
     active: false,
   },
 ] as const;
@@ -45,24 +45,24 @@ const defaultLayerOptions = [
 const defaultMissionTimeline = [
   {
     id: "mirador",
-    name: "Expedição Mirador",
-    status: "Em campo",
+    name: "Mirador Expedition",
+    status: "In field",
     progress: 64,
-    eta: "Hoje · 16:00",
+    eta: "Today · 16:00",
   },
   {
     id: "cartografia",
-    name: "Cartografia Norte",
-    status: "Planejamento",
+    name: "North Cartography",
+    status: "Planning",
     progress: 18,
-    eta: "Qua · 08:00",
+    eta: "Wed · 08:00",
   },
   {
     id: "rios",
-    name: "Sensoriamento dos rios",
-    status: "Processando",
+    name: "River sensing",
+    status: "Processing",
     progress: 82,
-    eta: "Qui · 21:30",
+    eta: "Thu · 21:30",
   },
 ] as const;
 
@@ -95,13 +95,13 @@ export function OperationsSidebar() {
         style={{ display: "flex", justifyContent: "space-between", gap: 8 }}
       >
         <div>
-          <p className="eyebrow">Operação Aurora</p>
+          <p className="eyebrow">Aurora Operation</p>
           <CardTitle as="h2">Serra do Mar</CardTitle>
           <CardDescription>
-            Monitoramento integrado · Abril 2026
+            Integrated monitoring · April 2026
           </CardDescription>
         </div>
-        <Badge variant="warning">Ao vivo</Badge>
+        <Badge variant="warning">Live</Badge>
       </SidebarHeader>
       <SidebarContent
         style={{
@@ -111,7 +111,7 @@ export function OperationsSidebar() {
         }}
       >
         <div className="sidebar-section">
-          <div className="sidebar-section-title">Condições</div>
+          <div className="sidebar-section-title">Conditions</div>
           <div
             style={{
               display: "flex",
@@ -119,18 +119,18 @@ export function OperationsSidebar() {
               gap: "var(--boulder-spacing-sm)",
             }}
           >
-            <DataAttribute label="Coordenadas" value="29ºS · 50ºW" />
-            <DataAttribute label="Temperatura" value="21ºC" />
-            <DataAttribute label="Vento" value="12 km/h NE" />
+            <DataAttribute label="Coordinates" value="29ºS · 50ºW" />
+            <DataAttribute label="Temperature" value="21ºC" />
+            <DataAttribute label="Wind" value="12 km/h NE" />
           </div>
         </div>
         <Divider />
         <TabsRoot defaultValue="layers">
           <TabsList className="sidebar-tabs-list">
             <TabsTrigger value="layers">
-              Camadas ({activeLayers.size}/{defaultLayerOptions.length})
+              Layers ({activeLayers.size}/{defaultLayerOptions.length})
             </TabsTrigger>
-            <TabsTrigger value="missions">Missões</TabsTrigger>
+            <TabsTrigger value="missions">Missions</TabsTrigger>
           </TabsList>
           <TabsContent value="layers">
             <ul className="layer-list">
@@ -144,7 +144,7 @@ export function OperationsSidebar() {
                     id={`layer-${layer.id}`}
                     checked={activeLayers.has(layer.id)}
                     onChange={() => handleToggleLayer(layer.id)}
-                    aria-label={`Alternar ${layer.label}`}
+                    aria-label={`Toggle ${layer.label}`}
                   />
                 </li>
               ))}
@@ -185,10 +185,11 @@ export function OperationsSidebar() {
         }}
       >
         <Button size="sm" variant="secondary">
-          Compartilhar
+          Share
         </Button>
-        <Button size="sm">Sincronizar sensores</Button>
+        <Button size="sm">Sync sensors</Button>
       </SidebarFooter>
     </Sidebar>
   );
 }
+

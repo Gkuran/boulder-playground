@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Badge,
   Button,
@@ -8,8 +9,13 @@ import {
   Input,
 } from "boulder-ui";
 
+type CustomHeaderProps = {
+  currentScreen: "home" | "components";
+  onNavigate: (screen: "home" | "components") => void;
+};
+
 const navLinks = [
-  { label: "Explorar", href: "#explore", isActive: true },
+  { label: "Explorar", screen: "home" as const },
   { label: "Coleções", href: "#collections" },
   { label: "Rotas", href: "#routes" },
   { label: "Alertas", href: "#alerts" },

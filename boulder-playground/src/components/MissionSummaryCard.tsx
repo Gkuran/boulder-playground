@@ -1,17 +1,45 @@
-import { Badge, Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, ProgressBar } from "boulder-ui";
+﻿import {
+  Badge,
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  ProgressBar,
+} from "boulder-ui";
 
 const missionTimeline = [
-  { id: "mirador", name: "Expedição Mirador", status: "Em campo", progress: 64, eta: "Hoje · 16:00" },
-  { id: "cartografia", name: "Cartografia Norte", status: "Planejamento", progress: 18, eta: "Qua · 08:00" },
-  { id: "rios", name: "Sensoriamento dos rios", status: "Processando", progress: 82, eta: "Qui · 21:30" },
+  {
+    id: "mirador",
+    name: "Mirador Expedition",
+    status: "In field",
+    progress: 64,
+    eta: "Today · 16:00",
+  },
+  {
+    id: "cartografia",
+    name: "North Cartography",
+    status: "Planning",
+    progress: 18,
+    eta: "Wed · 08:00",
+  },
+  {
+    id: "rios",
+    name: "River sensing",
+    status: "Processing",
+    progress: 82,
+    eta: "Thu · 21:30",
+  },
 ] as const;
 
 export function MissionSummaryCard() {
   return (
     <Card className="overlay-card">
       <CardHeader>
-        <CardTitle as="h3">Missões da semana</CardTitle>
-        <CardDescription>Sincronize telemetria e checklists.</CardDescription>
+        <CardTitle as="h3">Missions this week</CardTitle>
+        <CardDescription>Sync telemetry and checklists.</CardDescription>
       </CardHeader>
       <CardContent>
         <ul className="mission-list">
@@ -19,7 +47,9 @@ export function MissionSummaryCard() {
             <li key={mission.id} className="mission-item">
               <div className="mission-item__header">
                 <span>{mission.name}</span>
-                <Badge variant={mission.progress > 70 ? "warning" : "default"}>{mission.status}</Badge>
+                <Badge variant={mission.progress > 70 ? "warning" : "default"}>
+                  {mission.status}
+                </Badge>
               </div>
               <ProgressBar value={mission.progress} label="" showValue />
               <CardDescription>{mission.eta}</CardDescription>
@@ -29,9 +59,10 @@ export function MissionSummaryCard() {
       </CardContent>
       <CardFooter>
         <Button size="sm" variant="secondary">
-          Ver cronograma completo
+          View full schedule
         </Button>
       </CardFooter>
     </Card>
   );
 }
+

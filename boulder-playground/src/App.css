@@ -24,6 +24,26 @@ body {
   height: 100vh;
 }
 
+.components-shell {
+  height: 100vh;
+  min-height: 100vh;
+  overflow-y: auto;
+  background: #ffffff;
+  color: #1f2419;
+}
+
+.components-shell__header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 1rem 1.25rem 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.88)),
+    #ffffff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 .app-shell {
   position: relative;
   height: 100vh;
@@ -322,6 +342,60 @@ body {
   min-height: 0;
 }
 
+.secondary-grid > .experience-card {
+  grid-column: 1 / -1;
+}
+
+.components-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.components-page__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.components-page__hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.components-page__hero-copy h1,
+.components-page__hero-copy p {
+  margin: 0;
+}
+
+.components-page__hero-copy h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.components-page__hero-copy p:not(.eyebrow) {
+  max-width: 62ch;
+  color: rgba(31, 36, 25, 0.75);
+  font-size: 1rem;
+}
+
+.components-page__hero-actions,
+.components-page__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.components-page__summary {
+  background: rgba(247, 244, 236, 0.88);
+}
+
 .overlay-card [class*="_header_"],
 .overlay-card [class*="_footer_"],
 .sidebar-panel [class*="_header_"],
@@ -373,6 +447,87 @@ body {
   padding: 0.75rem 1rem;
 }
 
+.experience-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--boulder-spacing-md);
+  flex-wrap: wrap;
+}
+
+.experience-card__content {
+  position: relative;
+}
+
+.experience-playground {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--boulder-spacing-md);
+}
+
+.experience-pane {
+  display: flex;
+  flex-direction: column;
+  gap: var(--boulder-spacing-md);
+}
+
+.experience-actions,
+.experience-card__footer,
+.experience-card__footer-actions,
+.experience-tags,
+.experience-checkboxes {
+  display: flex;
+  gap: var(--boulder-spacing-sm);
+  flex-wrap: wrap;
+}
+
+.experience-kpis,
+.experience-form-grid,
+.experience-data-grid {
+  display: grid;
+  gap: var(--boulder-spacing-sm);
+}
+
+.experience-kpis {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.experience-form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.experience-data-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.experience-slider-row {
+  display: grid;
+  gap: var(--boulder-spacing-sm);
+}
+
+.experience-floating-panel,
+.experience-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--boulder-spacing-sm);
+}
+
+.experience-toast-stack {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+  width: min(320px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--boulder-spacing-sm);
+  pointer-events: none;
+}
+
+.experience-toast-stack > * {
+  pointer-events: auto;
+}
+
 @media (max-width: 1180px) {
   .overlay-layout {
     grid-template-columns: minmax(280px, 340px) minmax(0, 460px);
@@ -380,6 +535,13 @@ body {
 
   .stats-grid,
   .secondary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .components-page__hero,
+  .experience-kpis,
+  .experience-form-grid,
+  .experience-data-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -446,8 +608,16 @@ body {
   .map-card__actions,
   .mission-item__header,
   .team-member,
-  .hotspot-card {
+  .components-page__hero-actions,
+  .hotspot-card,
+  .experience-card__header,
+  .experience-card__footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .experience-toast-stack {
+    position: static;
+    width: 100%;
   }
 }

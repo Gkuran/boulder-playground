@@ -24,7 +24,7 @@ export function MapView({
   height = "100%",
   className,
   showMarker = true,
-  markerLabel = "Você está aqui",
+  markerLabel = "You are here",
 }: MapViewProps) {
   return (
     <div
