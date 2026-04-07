@@ -17,8 +17,6 @@ type CustomHeaderProps = {
 const navLinks = [
   { label: "Explorar", screen: "home" as const },
   { label: "Coleções", href: "#collections" },
-  { label: "Rotas", href: "#routes" },
-  { label: "Alertas", href: "#alerts" },
 ];
 
 export default function CustomHeader() {

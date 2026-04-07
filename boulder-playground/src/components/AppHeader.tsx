@@ -16,8 +16,6 @@ type AppHeaderProps = {
 const navLinks = [
   { label: "Explore", screen: "home" as const },
   { label: "Components", screen: "components" as const },
-  { label: "Routes", href: "#routes" },
-  { label: "Alerts", href: "#alerts" },
 ];
 
 export function AppHeader({ currentScreen, onNavigate }: AppHeaderProps) {
